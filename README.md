@@ -60,10 +60,13 @@ Additionally, it enforces **code quality checks** using **Robocop**, **robotfram
 └── README.md                   # Project overview and usage guide
 
 
-1. ✅ Install Dependencies
+---
+
+
+### 1. ✅ Install Dependencies
 pip install -r requirements.txt
 
-2. 🧪 Run Tests Locally
+### 2. 🧪 Run Tests Locally
 # UI tests
 robot ui/tests/
 
@@ -76,6 +79,8 @@ robot db/tests/
 # UX tests (Applitools)
 robot ux/tests/
 
-3. 📊 Run Performance Tests
+### 3. 📊 Run Performance Tests
 cd performance
 jmeter -n -t jmeter/login_test.jmx -l results/report.jtl
+
+---
