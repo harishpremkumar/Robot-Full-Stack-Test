@@ -1,36 +1,84 @@
-# This is a basic workflow to help you get started with Actions
-
 name: FullStack_Test_Automation
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+
+  # 1️⃣ Environment Setup
+  env-setup:
+    name: 1️⃣ Environment Setup
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: 🐍 Setup Environment
+        run: echo "🔧 Stage 1: Python, Robot Framework, and dependencies setup"
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+  # 2️⃣ Python Linting
+  python-lint:
+    name: 2️⃣ Python Linting
+    runs-on: ubuntu-latest
+    needs: env-setup
+    steps:
+      - name: 🐍 Pylint Check
+        run: echo "🔍 Stage 2: Running Pylint on custom Python libraries"
+
+  # 3️⃣ Robot Linting
+  robot-lint:
+    name: 3️⃣ Robot Linting
+    runs-on: ubuntu-latest
+    needs: python-lint
+    steps:
+      - name: 🤖 Robocop Check
+        run: echo "🧹 Stage 3: Running Robocop and Tidy on Robot files"
+
+  # 4️⃣ API Testing
+  api-test:
+    name: 4️⃣ API Test
+    runs-on: ubuntu-latest
+    needs: robot-lint
+    steps:
+      - name: 🔌 API Test Execution
+        run: echo "📡 Stage 4: Executing API Tests"
+
+  # 5️⃣ UI Testing
+  ui-test:
+    name: 5️⃣ UI Test
+    runs-on: ubuntu-latest
+    needs: api-test
+    steps:
+      - name: 🖥️ UI Test Execution
+        run: echo "🧪 Stage 5: Executing UI Tests with Selenium"
+
+  # 6️⃣ DB Testing
+  db-test:
+    name: 6️⃣ DB Test
+    runs-on: ubuntu-latest
+    needs: ui-test
+    steps:
+      - name: 🗄️ DB Test Execution
+        run: echo "🧾 Stage 6: Validating PostgreSQL DB"
+
+  # 7️⃣ UX Testing
+  ux-test:
+    name: 7️⃣ UX Test
+    runs-on: ubuntu-latest
+    needs: db-test
+    steps:
+      - name: 🔍 Visual Testing Execution
+        run: echo "🎨 Stage 7: Running UX Visual Tests with Applitools"
+
+  # 8️⃣ Performance Testing
+  performance-test:
+    name: 8️⃣ Performance Test
+    runs-on: ubuntu-latest
+    needs: ux-test
+    steps:
+      - name: 📈 Performance Test Execution
+        run: echo "🚀 Stage 8: Running JMeter Performance Tests"
