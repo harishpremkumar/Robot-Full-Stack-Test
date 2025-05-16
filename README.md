@@ -29,16 +29,16 @@ pip install -r requirements.txt
 # UI tests
 robot ui/tests/
 
-# API tests
+#### API tests
 robot api/tests/
 
-# DB tests
+#### DB tests
 robot db/tests/
 
-# UX tests (Applitools)
+#### UX tests (Applitools)
 robot ux/tests/
 
-### 3. 📊 Run Performance Tests
+#### 3. 📊 Run Performance Tests
 cd performance
 jmeter -n -t jmeter/login_test.jmx -l results/report.jtl
 
