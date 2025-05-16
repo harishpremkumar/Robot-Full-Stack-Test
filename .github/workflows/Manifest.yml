@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Environment
-        run: echo "Python, Robot Framework, and dependencies setup"
+        run: echo "🔧 Python, Robot Framework, and dependencies setup"
 
   # 2️⃣ Python Linting
   python-lint:
@@ -27,7 +27,7 @@ jobs:
     needs: env-setup
     steps:
       - name: Pylint Check
-        run: echo "Running Pylint on custom Python libraries"
+        run: echo "🔍 Running Pylint on custom Python libraries"
 
   # 3️⃣ Robot Linting
   robot-lint:
@@ -36,7 +36,7 @@ jobs:
     needs: python-lint
     steps:
       - name: Robocop Check
-        run: echo "Running Robocop and Tidy on Robot files"
+        run: echo "🧹Running Robocop and Tidy on Robot files"
 
   # 4️⃣ API Testing
   api-test:
@@ -45,7 +45,7 @@ jobs:
     needs: robot-lint
     steps:
       - name: API Test Execution
-        run: echo "Executing API Tests"
+        run: echo "📡 Executing API Tests"
 
   # 5️⃣ UI Testing
   ui-test:
@@ -54,7 +54,7 @@ jobs:
     needs: api-test
     steps:
       - name: UI Test Execution
-        run: echo "Executing UI Tests with Selenium"
+        run: echo "🖥️ Executing UI Tests with Selenium"
 
   # 6️⃣ DB Testing
   db-test:
@@ -63,7 +63,7 @@ jobs:
     needs: ui-test
     steps:
       - name: DB Test Execution
-        run: echo "Validating PostgreSQL DB"
+        run: echo "🗄️Validating PostgreSQL DB"
 
   # 7️⃣ UX Testing
   ux-test:
@@ -72,7 +72,7 @@ jobs:
     needs: db-test
     steps:
       - name: Visual Testing Execution
-        run: echo "Running UX Visual Tests with Applitools"
+        run: echo "🎨 Running UX Visual Tests with Applitools"
 
   # 8️⃣ Performance Testing
   performance-test:
@@ -81,4 +81,4 @@ jobs:
     needs: ux-test
     steps:
       - name: Performance Test Execution
-        run: echo "Running JMeter Performance Tests"
+        run: echo "🚀 Running JMeter Performance Tests"
