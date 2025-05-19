@@ -90,6 +90,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Create Output Folder
+        run: mkdir  reports
+
       - name: JMeter Performance Test Execution
         uses: QAInsights/PerfAction@v5.6.2
         with:
@@ -100,7 +103,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: jmeter-html-reports
-          path: reports/html/
+          path: reports
 
           
       # - name: Upload Results
