@@ -1,0 +1,10 @@
+robotframework
+robotframework-seleniumlibrary
+robotframework-requests
+eyes-robotframework
+robotframework-robocop
+robotframework-tidy
+selenium
+requests
+psycopg2-binary
+pylint

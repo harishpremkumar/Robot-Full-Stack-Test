@@ -79,5 +79,4 @@ Additionally, it enforces **code quality checks** using **Robocop**, **robotfram
 ├── .gitignore                  # Git ignored files (logs, venv, etc.)
 └── README.md                   # Project overview and usage guide
 
----
 
