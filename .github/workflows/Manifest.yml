@@ -88,5 +88,25 @@ jobs:
     runs-on: ubuntu-latest
     needs: ux-test
     steps:
-      - name: Performance Test Execution
-        run: echo "🚀 Running JMeter Performance Tests"
+      - name: JMeter Performance Test Execution
+        uses: QAInsights/PerfAction@v5.6.2
+        with:
+          test-plan-path: ./performance/jmeter/ThreadGroup.jmx
+          args: "-e -o reports/html/"
+          
+      - name: Upload Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: jmeter-results
+          path: result.jtl
+      
+      - name: Upload HTML Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: jmeter-html-reports
+          path: reports
+        
+
+
+
+        
