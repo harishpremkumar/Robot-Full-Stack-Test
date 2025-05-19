@@ -86,31 +86,22 @@ jobs:
   performance-test:
     name: Performance Test
     runs-on: ubuntu-latest
-    # needs: ux-test
     steps:
-      - name: Cache JMeter
-        uses: actions/cache@v3
-        with:
-          path: ~/.jmeter
-          key: jmeter-cache-${{ runner.os }}
-
-      - name: Cache JMeter Test Plans
-        uses: actions/cache@v3
-        with:
-          path: performance/jmeter
-          key: jmeter-test-${{ hashFiles('performance/jmeter/*.jmx') }}
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: JMeter Performance Test Execution
         uses: QAInsights/PerfAction@v5.6.2
         with:
           test-plan-path: ./performance/jmeter/ThreadGroup.jmx
           args: "-e -o reports/html/"
-            
-      - name: check pwd
-        run: |
-            ls
-            cd ..  
-            ls  
+
+      - name: Upload HTML Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: jmeter-html-reports
+          path: reports/html/
+
           
       # - name: Upload Results
       #   uses: actions/upload-artifact@v4
