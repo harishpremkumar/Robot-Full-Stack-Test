@@ -6,8 +6,11 @@ pipeline {
             steps {
                 echo "Running Robot tests for ${env.BRANCH_NAME}"
                 sh '''
+                    ls
                     pwd
                     robot --listener allure_robotframework:allure-results /ui/tests/test_login_ui.robot
+                    echo "After pwd"
+                    ls
                 '''
             }
         }
