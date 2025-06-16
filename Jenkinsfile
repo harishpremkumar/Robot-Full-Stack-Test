@@ -9,7 +9,7 @@ pipeline {
                         python3 -m venv test_venv
                         ls
                         cd test_venv/bin/
-                        activate.sh
+                        activate
                         pip install -r requirements.txt
                         cd ..//..
                         cd ..//..
