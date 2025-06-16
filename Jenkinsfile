@@ -6,7 +6,7 @@ pipeline {
         stage('ENV Setup and Installing Dependancy') {
             steps {
                 sh '''
-                    pip install -r requirements.txt
+                    pip install --user -r requirements.txt
                 '''
             }
         }
