@@ -7,6 +7,7 @@ pipeline {
             steps {
                 sh '''
                         python3 -m venv test_venv
+                        ls
                         source test_venv/bin/activate
                         pip install -r requirements.txt
                 '''
