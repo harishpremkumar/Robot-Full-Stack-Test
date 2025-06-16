@@ -8,8 +8,11 @@ pipeline {
                 sh '''
                         python3 -m venv test_venv
                         ls
-                        source test_venv/bin/activate
+                        cd test_venv/bin/
+                        activate.sh
                         pip install -r requirements.txt
+                        cd ..//..
+                        cd ..//..
                 '''
             }
         }
