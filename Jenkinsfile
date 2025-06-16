@@ -8,7 +8,7 @@ pipeline {
                 sh '''
                     ls
                     pwd
-                    robot --listener allure_robotframework:allure-results /ui/tests/test_login_ui.robot
+                    robot --listener allure_robotframework:allure-results ui/tests/test_login_ui.robot
                     echo "After pwd"
                     ls
                 '''
