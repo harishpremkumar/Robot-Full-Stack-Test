@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+
+        stage('ENV Setup and Installing Dependancy') {
+            steps {
+                pip install -r requirements.txt
+            }
+        }
+        
         stage('Test') {
             steps {
                 echo "Running Robot tests for ${env.BRANCH_NAME}"
