@@ -3,29 +3,23 @@ pipeline {
 
     stages {
 
-        stage('ENV Setup and Installing Dependancy') {
+        stage('ENV Setup and Installing Dependencies') {
             steps {
                 sh '''
-                        python3 -m venv test_venv
-                        ls
-                        cd test_venv/bin/
-                        activate
-                        pip install -r requirements.txt
-                        cd ..//..
-                        cd ..//..
+                    python3 -m venv test_venv
+                    bash -c "source test_venv/bin/activate && \
+                             pip install --upgrade pip && \
+                             pip install -r requirements.txt"
                 '''
             }
         }
-        
+
         stage('Test') {
             steps {
                 echo "Running Robot tests for ${env.BRANCH_NAME}"
                 sh '''
-                    ls
-                    pwd
-                    robot --listener allure_robotframework:allure-results ui/tests/test_login_ui.robot
-                    echo "After pwd"
-                    ls
+                    bash -c "source test_venv/bin/activate && \
+                             robot --listener allure_robotframework:allure-results ui/tests/test_login_ui.robot"
                 '''
             }
         }
@@ -54,6 +48,4 @@ pipeline {
             ])
         }
     }
-
-
 }
