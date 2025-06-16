@@ -6,7 +6,10 @@ pipeline {
         stage('ENV Setup and Installing Dependancy') {
             steps {
                 sh '''
-                    pip install --user -r requirements.txt
+                    sh '''
+                        python3 -m venv venv
+                        source venv/bin/activate
+                        pip install -r requirements.txt
                 '''
             }
         }
