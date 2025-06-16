@@ -12,7 +12,7 @@ CHROME_OPTIONS_Tc01
     Call Method    ${options}    add_argument    --disable-gpu
     Call Method    ${options}    add_argument    --incognito
     Call Method    ${options}    add_argument    --headless
-    Open Browser    ${URL}    chrome    options=${CHROME_OPTIONS}
+    Open Browser    ${URL}    chrome    options=${options}
     Sleep    3s
     Maximize Browser Window
     Close Browser
