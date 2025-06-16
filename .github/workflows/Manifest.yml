@@ -2,9 +2,9 @@ name: FullStack_Test_Automation
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "harish" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "harish" ]
   workflow_dispatch:
 
 jobs:
