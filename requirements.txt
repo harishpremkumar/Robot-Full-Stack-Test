@@ -2,3 +2,5 @@ robotframework
 robotframework-seleniumlibrary
 selenium
 allure-robotframework
+selenium
+pandas
