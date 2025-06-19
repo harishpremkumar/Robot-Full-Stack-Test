@@ -24,6 +24,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+
+RUN echo "Installing Chrome browser..." && \
+    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /usr/share/keyrings/google-chrome.gpg && \
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
+    apt-get update && \
+    apt-get install -y google-chrome-stable && \
+    google-chrome --version    
+
 # Locale settings
 RUN locale-gen en_US.UTF-8
 ENV LANG=en_US.UTF-8
@@ -62,7 +70,7 @@ USER jenkins
 # Set working directory for Robot tests
 RUN mkdir -p /home/jenkins/project
 WORKDIR /home/jenkins/project
-COPY tests/ /home/jenkins/project/tests/
+COPY ui/ /home/jenkins/tests/ui
 
 # Expose Jenkins default port
 EXPOSE 8080
