@@ -29,13 +29,6 @@ pipeline {
         }
 
 
-        stage('Executing API Regression Tests') {
-            steps {
-                echo "Running Robot with Pabot tests for ${env.BRANCH_NAME}"
-                
-            }
-        }
-
         stage('Executing UI Regression Tests') {
             steps {
                 echo "Running Robot with Pabot tests for ${env.BRANCH_NAME}"
