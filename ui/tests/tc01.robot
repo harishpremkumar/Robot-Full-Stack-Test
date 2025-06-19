@@ -5,7 +5,7 @@ Library    SeleniumLibrary
 ${URL}     https://www.saucedemo.com/v1/
 
 *** Test Cases ***
-CHROME_OPTIONS_Tc02
+CHROME_OPTIONS_Tc01
     ${options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys,selenium.webdriver
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --no-sandbox
