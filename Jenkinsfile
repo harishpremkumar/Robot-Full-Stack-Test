@@ -26,13 +26,13 @@ pipeline {
                 echo "Checking Linting on robot scripts for ${env.BRANCH_NAME}"
                 sh '''
                     set -e
-                    bash -c "source test_venv/bin/activate
-                             robocop check ui/tests/
-                             robocop format ui/tests/
+                    source test_venv/bin/activate
+                    robocop check ui/tests/
+                    robocop format ui/tests/
                 '''
-                
             }
         }
+
 
 
         stage('Executing UI Regression Tests') {
