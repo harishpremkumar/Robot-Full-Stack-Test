@@ -3,3 +3,5 @@ robotframework-seleniumlibrary
 selenium
 allure-robotframework
 robotframework-pabot
+robotframework-robocop
+pylint

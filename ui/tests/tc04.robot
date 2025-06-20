@@ -1,11 +1,15 @@
 *** Settings ***
-Library    SeleniumLibrary
+
+Library             SeleniumLibrary
+
 
 *** Variables ***
-${URL}     https://www.saucedemo.com/v1/
+${URL}      https://www.saucedemo.com/v1/
+
 
 *** Test Cases ***
 CHROME_OPTIONS_Tc04
+    [Documentation]    test4
     ${options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys,selenium.webdriver
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --no-sandbox
