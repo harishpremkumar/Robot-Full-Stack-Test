@@ -26,6 +26,7 @@ pipeline {
                 echo "Checking Linting on robot scripts for ${env.BRANCH_NAME}"
                 sh '''
                     set -e
+                    source test_venv/bin/activate
                     robocop check ui/tests/
                     robocop format ui/tests/
                 '''
