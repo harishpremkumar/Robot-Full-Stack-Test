@@ -1,4 +1,5 @@
 *** Settings ***
+Documentation       suite4
 
 Library             SeleniumLibrary
 
