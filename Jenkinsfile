@@ -27,8 +27,8 @@ pipeline {
                 sh '''
                     set -e
                     bash -c "source test_venv/bin/activate
-                    robocop check ui/tests/
-                    robocop format ui/tests/
+                        robocop check ui/tests/
+                        robocop format ui/tests/
                 '''
                 
             }
