@@ -24,12 +24,13 @@ pipeline {
         stage('Analyze Linting (Robocop)') {
             steps {
                 echo "Checking Linting on robot scripts for ${env.BRANCH_NAME}"
-                sh '''
+                sh '''#!/bin/bash
                     set -e
-                    bash -c "source test_venv/bin/activate"
+                    source test_venv/bin/activate
                     robocop check ui/tests/
                     robocop format ui/tests/
                 '''
+
             }
         }
 
