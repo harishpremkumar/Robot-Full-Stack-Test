@@ -5,3 +5,5 @@ allure-robotframework
 robotframework-pabot
 robotframework-robocop
 pylint
+robotframework-requests
+
