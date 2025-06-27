@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        API_KEY = credentials('API_KEY')  // ← This pulls from Jenkins Credentials
+    }
 
     stages {
         
