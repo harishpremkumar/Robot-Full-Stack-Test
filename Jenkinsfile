@@ -49,6 +49,10 @@ pipeline {
         stage('Executing API Regression Tests') {
             steps {
                 echo "Running Robot with Pabot tests for ${env.BRANCH_NAME}"
+                sh '''
+                    bash -c "source test_venv/bin/activate && \
+                             robot --variable api_key:$API_KEY  api/tests/"
+                '''
                 
             }
         }
