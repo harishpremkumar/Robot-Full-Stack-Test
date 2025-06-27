@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        API_KEY = credentials('API_KEY')  // ← This pulls from Jenkins Credentials
+    }
 
     stages {
         
@@ -41,7 +44,7 @@ pipeline {
                 echo "Running Robot with Pabot tests for ${env.BRANCH_NAME}"
                 sh '''
                     bash -c "source test_venv/bin/activate && \
-                             pabot --processes 2  --listener allure_robotframework:allure-results ui/tests/"
+                             robot --listener allure_robotframework:allure-results ui/tests/"
                 '''
             }
         }
